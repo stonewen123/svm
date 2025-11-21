@@ -82,21 +82,7 @@ c
 # grid_search.fit(X_train, y_train)
 # print("最优参数：", grid_search.best_params_)
 # print("交叉验证下的最佳平均准确率：", grid_search.best_score_)
-#svc = SVC(kernel="rbf")
-#param_grid={
-#    'C': [0.1, 1, 10, 100],
- #   'gamma':[0.001, 0.01, 0.1]
-#}
-#grid_search=GridSearchCV(
- #   estimator=svc,
- #   param_grid=param_grid,
- #  scoring='accuracy',
- #   cv=5,
- #   n_jobs=-1,
-#   verbose=1
-#)
-##print("最优参数：", grid_search.best_params_)
-#print("交叉验证下的最佳平均准确率：", grid_search.best_score_)
+
 
 # ========== 5. 使用最优模型在测试集上评估（学生完成） ==========
 
@@ -116,12 +102,7 @@ c
     5. （选做）打印更详细的分类报告：
            print(classification_report(y_test, y_pred))
 """
-#best_clf=grid_search.best_estimator_
-#y_pred=best_clf.predict(X_test)
-#test_acc=accuracy_score(y_test,y_pred)
-#print("测试集准确率：", test_acc)
-#print("分类报告")
-#print(classification_report(y_test, y_pred))
+
 
 # 在这里写你自己的测试集评估代码
 # 例如：
