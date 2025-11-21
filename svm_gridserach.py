@@ -116,12 +116,10 @@ c
 
 
 svc = SVC(kernel="rbf", random_state=42)
-
 param_grid = {
            'C': [0.1, 1, 10, 100],
            'gamma': [0.001, 0.01, 0.1]
                }
-
 grid_search = GridSearchCV(
 estimator=svc,
 param_grid=param_grid,
@@ -130,17 +128,13 @@ cv=5,
 n_jobs=-1,
 verbose=1
 )
-
 grid_search.fit(X_train, y_train)
-
 print("最优参数：", grid_search.best_params_)
 print("交叉验证下的最佳平均准确率：", grid_search.best_score_)
 
 
 best_clf = grid_search.best_estimator_
-
 y_pred = best_clf.predict(X_test)
-
 test_acc=accuracy_score(y_test, y_pred)
 print("测试集准确率：", test_acc)
 print("\n详细分类报告：")
