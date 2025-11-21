@@ -110,15 +110,18 @@ c
 # y_pred = ...
 # test_acc = ...
 # print("测试集准确率：", test_acc)
-# print(classification_report(y_test, y_pred))
+# print(classification_report)
 # 创建SVC模型
+
+
+
 svc = SVC(kernel="rbf", random_state=42)
-# 构造参数网格
+
 param_grid = {
            'C': [0.1, 1, 10, 100],
            'gamma': [0.001, 0.01, 0.1]
                }
-# 使用GridSearchCV进行参数搜索
+
 grid_search = GridSearchCV(
 estimator=svc,
 param_grid=param_grid,
@@ -127,19 +130,18 @@ cv=5,
 n_jobs=-1,
 verbose=1
 )
-# 在训练集上进行搜索
+
 grid_search.fit(X_train, y_train)
-# 打印最优参数和交叉验证结果
+
 print("最优参数：", grid_search.best_params_)
 print("交叉验证下的最佳平均准确率：", grid_search.best_score_)
-# ========== 5. 使用最优模型在测试集上评估 ==========
-# 从GridSearchCV中取出最优模型
+
+
 best_clf = grid_search.best_estimator_
-# 使用最优模型对测试集进行预测
+
 y_pred = best_clf.predict(X_test)
-# 计算测试集上的准确率
-test_acc = accuracy_score(y_test, y_pred)
-# 打印结果
+
+test_acc=accuracy_score(y_test, y_pred)
 print("测试集准确率：", test_acc)
 print("\n详细分类报告：")
 print(classification_report(y_test, y_pred))
